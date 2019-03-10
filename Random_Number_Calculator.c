@@ -5,7 +5,7 @@
 int sign(void);
 
 int main(int argc, char *argv[]){
-	srand(time(NULL));
+	srand(time(NULL));	//Seed random number generator
 	FILE *fp=fopen("result.txt", "w"); 	//Open (or create if missing) file result.txt, with writing privileges
 	if(fp==NULL){	//Check file pointer
 		fprintf(stderr, "ERROR: Failed to open/create file.\n");
@@ -25,10 +25,6 @@ int main(int argc, char *argv[]){
 		}
 
 	float operands[arity];	//Create array of operands with required arity
-
-	for(int i=0; i<arity; i++){     //Choose operands from integers in range [0,100]
-                                operands[i]=rand()%101;
-                                }
 
 	int num_ops=0; 		//Make user choose how many operations to perform
 	puts("How many operations do wou want to perform?");
@@ -217,6 +213,7 @@ int main(int argc, char *argv[]){
 return 0;
 }
 
+//The following function chooses a random sign
 int sign(void){
 	int result=0, num1=rand()%10, num2=rand()%10;
 	if(num1%2==0 && num2%2==0){
